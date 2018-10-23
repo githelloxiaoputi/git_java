@@ -1,0 +1,123 @@
+1.	java使用数组关键点：
+	一维数组定义：
+		1.	int[] a = new int[3]; 
+		2.	int[] b = {1,2,3};
+		3.	int[] c = new int[]{1,2,3};
+	二维数组定义：
+		1.	int[][] a = new int[3][5]; 
+		2.	int[][] b = {{1,1,1,1,1}, {2,2,2,2,2}, {3,3,3,3,3} };
+		3.	int[][] a = new int[][] {{1,1,1,1,1}, {2,2,2,2,2}, {3,3,3,3,3} };
+	定义二维数组必须指定其行数，列数可以指定，可以不指定。
+		1.	正确定义：int[][] d = new int[3][];
+		2.	错误定义：int[][] d = new int[][4]; int[][] d = new int[][];
+	定义不规则数组：
+		1.	arr = new int[2][];
+		2.	arr[0] = new int[3];
+		3.	arr[1] = new int[5];
+	数组的输出：
+		1.	import java.util.Arrays;
+		2.	System.out.print(Arrays.toString(一维数组名称));		//只能用来输出一维数组
+	数组的循环：
+		1.	for(初始化; 布尔表达式; 更新) { 代码语句 }
+			例：for(int x = 10; x < 20; x++) {
+		    		System.out.print("value of x : " + x );
+		      	}
+		2.	for(声明语句 : 表达式){ 代码句子 }
+      		例：int [] numbers = {10, 20, 30, 40, 50};
+				for(int x : numbers ){
+					System.out.print( x );
+				}
+2.	字符串String
+	在java中单引号只能用来表示一个字符，双引号用来表示一连串字符串
+		例：char a = 'b';   String c = "aaaa";
+	字符串输出：
+		1.	String fs;
+			fs = String.format("浮点型变量为" + "%f, 整型变量为" + " %d, 字符串变量为" + "%s", 0.1, 10, "aa");
+			System.out.print(fs);
+		2.	System.out.printf("浮点型变量为" + "%f, 整型变量为" + " %d, 字符串变量为" + "%s", 0.1, 10, "aa");
+3.	程序入口：
+		public static void main(String args[]){ 代码 }
+4.	java日期时间
+		1.	初始化 Date 对象,引入import java.util.*;
+			Date date = new Date();	
+		2.	使用 toString() 函数显示日期时间	
+			System.out.println(date.toString());	 
+		3.	格式话时间格式类，引入import java.text.*;
+			SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");	
+			ft.format(date)
+		4.	将时间格式字符串转换为时间	parse()	
+			SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd"); 
+			String input = "2018-10-23";
+			Date t; 
+			try { 
+				t = ft.parse(input); 
+				System.out.println(t); 
+			} catch (ParseException e) { 
+				System.out.println("Unparseable using " + ft); 
+			}
+		5.	线程睡眠	sleep()
+			try { 
+				System.out.println(new Date( ) + "\n"); 
+				Thread.sleep(1000*3);   // 休眠3秒
+				System.out.println(new Date( ) + "\n"); 
+			} catch (Exception e) { 
+				System.out.println("Got an exception!"); 
+			}
+		6.	获取年 月 日 时 分 秒 星期
+			//实例化Calendar对象
+			Calendar c1 = Calendar.getInstance();
+			// 获得年份
+			int year = c1.get(Calendar.YEAR);
+			// 获得月份
+			int month = c1.get(Calendar.MONTH) + 1;
+			// 获得日期
+			int date = c1.get(Calendar.DATE);
+			// 获得小时
+			int hour = c1.get(Calendar.HOUR_OF_DAY);
+			// 获得分钟
+			int minute = c1.get(Calendar.MINUTE);
+			// 获得秒
+			int second = c1.get(Calendar.SECOND);
+			// 获得星期几（注意（这个与Date类是不同的）：1代表星期日、2代表星期1、3代表星期二，以此类推）
+			int day = c1.get(Calendar.DAY_OF_WEEK);
+		7.	获取时间戳
+			long time = System.currentTimeMillis();  //毫秒数
+			String t = String.valueOf(time/1000);	//秒
+		8.	指定日期格式转换为时间戳
+			try {  
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+				Long a = sdf.parse("2018-10-23").getTime();
+				String t = String.valueOf(a/1000);
+				System.out.println(t);
+			} catch (Exception e) {  
+				e.printStackTrace();  
+			}  
+		9.	时间戳转换为时间格式
+			SimpleDateFormat sdf = new SimpleDateFormat(format);  
+			String t = sdf.format(new Date(Long.valueOf(seconds+"000")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
