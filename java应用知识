@@ -1,0 +1,5 @@
+基础语法就直接略过
+1.	获取用户输入的信息
+	import java.util.Scanner;	导入Scanner类
+	Scanner input = new Scanner(System.in);	实例化Scanner对象
+    int a = input.nextInt();	通过对象获取输入的数字存入变量a中
